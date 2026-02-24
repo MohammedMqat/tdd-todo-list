@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,22 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>tdd-todo-list</title>
   </head>
+
   <body>
     <div id="app">
-      <a href="https://vite.dev" target="_blank">
-        <img src="/vite.svg" class="logo" alt="Vite logo" />
-      </a>
-      <a
-        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-        target="_blank"
-      >
-        <img src="/javascript.svg" class="logo vanilla" alt="JavaScript logo" />
-      </a>
-      <h1>Hello JS!</h1>
-      <div class="card">
-        <button id="counter" type="button"></button>
+      <h1>Todo List</h1>
+      <form id="add-todo">
+        <input type="text" name="description" value="" />
+        <input type="submit" name="" value="Submit" />
+      </form>
+      <div id="todo-container">
+        <ul></ul>
       </div>
-      <p class="read-the-docs">Click on the Vite logo to learn more</p>
     </div>
   </body>
   <script type="module" src="/src/main.js"></script>
