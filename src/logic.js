@@ -46,6 +46,7 @@ export const todoFunctions = {
     // in the new todo array, all elements will remain unchanged except the one with id: idToMark
     // this element will have its done value toggled
     // hint: array.map
+    return todos;
   },
   sortTodos: function (todos, sortFunction) {
     // stretch goal! Do this last

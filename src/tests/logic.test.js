@@ -96,11 +96,17 @@ test("delete 2 todo from array with length [4]", () => {
     description: "Example4",
   });
 });
-test("mark Finished tasks With doen", () =>{
+test("mark Finished tasks With doen", () => {
   const state = [
     { id: 1, description: "Example1" },
     { id: 2, description: "Example2" },
-const markdone = todoFunctions.markTodo(state,id);
-expect 
-
-})
+  ];
+  const idToMark = 1;
+  const newState = todoFunctions.markTodo(state, idToMark);
+  expect(newState).toHaveLength(2);
+  expect(newState[0]).toEqual({
+    id: 1,
+    description: "Example1",
+    done: true,
+  });
+});
