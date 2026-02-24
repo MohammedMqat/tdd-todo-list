@@ -2,11 +2,11 @@
 // you can access these on todo.todoFunctions
 // For part one we expect you to use tdd
 
-var todoFunctions = {
+export const todoFunctions = {
   // todoFunctions.generateId() will give you a unique id
   // You do not need to understand the implementation of this function.
   generateId: (function () {
-    var idCounter = 0;
+    let idCounter = 0;
 
     function incrementCounter() {
       return (idCounter += 1);
@@ -15,7 +15,7 @@ var todoFunctions = {
     return incrementCounter;
   })(),
 
-  //cloneArrayOfObjects will create a copy of the todos array 
+  //cloneArrayOfObjects will create a copy of the todos array
   //changes to the new array don't affect the original
   cloneArrayOfObjects: function (todos) {
     return todos.map(function (todo) {
@@ -25,14 +25,21 @@ var todoFunctions = {
 
   addTodo: function (todos, newTodo) {
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
+    let clonedTodos = this.cloneArrayOfObjects(todos);
     // returns a new array, it should contain todos with the newTodo added to the end.
+    newTodo.id = this.generateId();
+
     // add an id to the newTodo. You can use the generateId function to create an id.
     // hint: array.concat
+    return clonedTodos.concat(newTodo);
   },
   deleteTodo: function (todos, idToDelete) {
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
+    let clonedTodos = this.cloneArrayOfObjects(todos);
+
     // return a new array, this should not contain any todo with an id of idToDelete
     // hint: array.filter
+    return clonedTodos.filter((todo) => todo.id !== idToDelete);
   },
   markTodo: function (todos, idToMark) {
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
