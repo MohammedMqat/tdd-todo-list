@@ -49,13 +49,11 @@ function setupTodo() {
     });
   }
 
-  // you should not need to change this function
   const update = function (newState) {
     state = newState;
     renderState(state);
   };
 
-  // you do not need to change this function
   const renderState = function (state) {
     const todoListNode = document.createElement("ul");
 
