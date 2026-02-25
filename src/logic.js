@@ -58,7 +58,10 @@ export const todoFunctions = {
   sortTodos: function (todos, sortFunction) {
     // stretch goal! Do this last
     // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
+    let clonedTodos = this.cloneArrayOfObjects(todos);
+
     // sortFunction will have same signature as the sort function in array.sort
     // hint: array.slice, array.sort
+    return clonedTodos.sort(sortFunction);
   },
 };

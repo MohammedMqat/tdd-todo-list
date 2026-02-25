@@ -64,7 +64,6 @@ test("delete todo from array with length [4]", () => {
   ];
   const idToDelete = 3;
   const newState = todoFunctions.deleteTodo(state, idToDelete);
-  console.log(newState);
   expect(newState).toHaveLength(3);
   expect(newState[0]).toEqual({
     id: 1,
@@ -85,7 +84,6 @@ test("delete 2 todo from array with length [4]", () => {
   ];
   const newState = todoFunctions.deleteTodo(state, 3);
   const newState2 = todoFunctions.deleteTodo(newState, 1);
-  console.log(newState2);
   expect(newState2).toHaveLength(2);
   expect(newState2[0]).toEqual({
     id: 2,
@@ -108,5 +106,43 @@ test("mark Finished tasks With doen", () => {
     id: 1,
     description: "Example1",
     done: true,
+  });
+});
+
+test("Sort Array", () => {
+  const state = [
+    { id: 2, description: "B" },
+    { id: 1, description: "A" },
+    { id: 3, description: "C" },
+  ];
+
+  const sortFunction = (a, b) => {
+    const nameA = a.description.toUpperCase(); // ignore upper and lowercase
+    const nameB = b.description.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+
+    // names must be equal
+    return 0;
+  };
+
+  const newState = todoFunctions.sortTodos(state, sortFunction);
+  console.log(newState);
+  expect(newState).toHaveLength(3);
+  expect(newState[0]).toEqual({
+    id: 1,
+    description: "A",
+  });
+  expect(newState[1]).toEqual({
+    id: 2,
+    description: "B",
+  });
+  expect(newState[2]).toEqual({
+    id: 3,
+    description: "C",
   });
 });
